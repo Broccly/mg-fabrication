@@ -1,0 +1,63 @@
+---
+---
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+    <a href="#home" class="flex items-center gap-3 group">
+      <div class="w-10 h-10 bg-brand-orange rounded flex items-center justify-center font-heading font-bold text-white text-lg">MG</div>
+      <div>
+        <div class="font-heading font-bold text-white text-lg leading-tight tracking-wide">MG Fabrication Works</div>
+        <div class="text-xs text-gray-400 leading-tight">Chennai's Fabrication Experts</div>
+      </div>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="#services" class="text-gray-300 hover:text-brand-orange transition-colors text-sm font-medium tracking-wide uppercase">Services</a>
+      <a href="#gallery" class="text-gray-300 hover:text-brand-orange transition-colors text-sm font-medium tracking-wide uppercase">Gallery</a>
+      <a href="#why-us" class="text-gray-300 hover:text-brand-orange transition-colors text-sm font-medium tracking-wide uppercase">About</a>
+      <a href="#contact" class="bg-brand-orange hover:bg-orange-600 text-white px-5 py-2 rounded text-sm font-semibold tracking-wide uppercase transition-colors">Get a Quote</a>
+    </nav>
+
+    <!-- Mobile hamburger -->
+    <button id="menu-btn" class="md:hidden text-gray-300 p-2" aria-label="Open menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden hidden bg-brand-surface border-t border-brand-border mt-4">
+    <nav class="flex flex-col px-4 py-4 gap-4">
+      <a href="#services" class="mobile-link text-gray-300 hover:text-brand-orange text-sm font-medium uppercase tracking-wide">Services</a>
+      <a href="#gallery" class="mobile-link text-gray-300 hover:text-brand-orange text-sm font-medium uppercase tracking-wide">Gallery</a>
+      <a href="#why-us" class="mobile-link text-gray-300 hover:text-brand-orange text-sm font-medium uppercase tracking-wide">About</a>
+      <a href="#contact" class="mobile-link bg-brand-orange text-white px-4 py-2 rounded text-sm font-semibold uppercase text-center">Get a Quote</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar?.classList.add('bg-brand-dark/95', 'backdrop-blur-sm', 'shadow-lg', 'border-b', 'border-brand-border');
+    } else {
+      navbar?.classList.remove('bg-brand-dark/95', 'backdrop-blur-sm', 'shadow-lg', 'border-b', 'border-brand-border');
+    }
+  });
+
+  menuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+    });
+  });
+</script>

@@ -1,0 +1,94 @@
+---
+---
+<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background image -->
+  <div class="absolute inset-0">
+    <img
+      src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=1920&q=80"
+      alt="Welder at work"
+      class="w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/50"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent"></div>
+  </div>
+
+  <!-- Animated sparks overlay -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="spark spark-1"></div>
+    <div class="spark spark-2"></div>
+    <div class="spark spark-3"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-32">
+    <div class="max-w-3xl">
+      <div class="inline-flex items-center gap-2 bg-brand-orange/20 border border-brand-orange/40 rounded-full px-4 py-1.5 mb-6">
+        <span class="w-2 h-2 bg-brand-orange rounded-full animate-pulse"></span>
+        <span class="text-brand-orange text-sm font-medium tracking-wide">Chennai, Tamil Nadu</span>
+      </div>
+
+      <h1 class="font-heading font-bold text-5xl sm:text-6xl lg:text-7xl text-white leading-tight mb-6">
+        Built Strong.<br />
+        <span class="text-brand-orange">Built to Last.</span>
+      </h1>
+
+      <p class="text-gray-300 text-lg sm:text-xl leading-relaxed mb-10 max-w-xl">
+        Chennai's trusted fabrication partner for <strong class="text-white">metal roofing</strong>, <strong class="text-white">plumbing</strong>, and <strong class="text-white">precision welding</strong>. Over a decade of craftsmanship delivering quality on time.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="#contact" class="inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-orange-600 text-white font-semibold px-8 py-4 rounded text-base uppercase tracking-wide transition-all duration-200 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          Get a Free Quote
+        </a>
+        <a href="#gallery" class="inline-flex items-center justify-center gap-2 border border-white/30 hover:border-brand-orange text-white hover:text-brand-orange font-semibold px-8 py-4 rounded text-base uppercase tracking-wide transition-all duration-200">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          View Our Work
+        </a>
+      </div>
+
+      <!-- Stats bar -->
+      <div class="mt-16 flex flex-wrap gap-8">
+        <div>
+          <div class="font-heading font-bold text-3xl text-brand-orange">10+</div>
+          <div class="text-gray-400 text-sm">Years Experience</div>
+        </div>
+        <div class="w-px bg-brand-border hidden sm:block"></div>
+        <div>
+          <div class="font-heading font-bold text-3xl text-brand-orange">500+</div>
+          <div class="text-gray-400 text-sm">Projects Done</div>
+        </div>
+        <div class="w-px bg-brand-border hidden sm:block"></div>
+        <div>
+          <div class="font-heading font-bold text-3xl text-brand-orange">100%</div>
+          <div class="text-gray-400 text-sm">Client Satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500">
+    <span class="text-xs tracking-widest uppercase">Scroll</span>
+    <div class="w-px h-12 bg-gradient-to-b from-gray-500 to-transparent animate-pulse"></div>
+  </div>
+</section>
+
+<style>
+  .spark {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #f97316;
+    border-radius: 50%;
+    animation: float 6s infinite ease-in-out;
+    box-shadow: 0 0 6px #f97316, 0 0 12px #f97316;
+  }
+  .spark-1 { top: 30%; left: 60%; animation-delay: 0s; }
+  .spark-2 { top: 50%; left: 75%; animation-delay: 2s; }
+  .spark-3 { top: 20%; left: 70%; animation-delay: 4s; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0.8; }
+    50% { transform: translateY(-40px) scale(0.5); opacity: 0.2; }
+  }
+</style>

@@ -1,0 +1,95 @@
+---
+const images = [
+  { src: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80', alt: 'Welding sparks at work' },
+  { src: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&q=80', alt: 'Professional welding' },
+  { src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80', alt: 'Metal roofing installation' },
+  { src: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80', alt: 'Plumbing pipe work' },
+  { src: 'https://images.unsplash.com/photo-1590496793929-36417d3117de?w=800&q=80', alt: 'Industrial metal fabrication' },
+  { src: 'https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=800&q=80', alt: 'Steel structure work' },
+  { src: 'https://images.unsplash.com/photo-1530685932526-48ec92998eaa?w=800&q=80', alt: 'Roof construction' },
+  { src: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&q=80', alt: 'Construction work' },
+  { src: 'https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=800&q=80', alt: 'Metal gate fabrication' },
+];
+---
+
+<section id="gallery" class="py-24 bg-brand-dark">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 text-brand-orange text-sm font-semibold tracking-widest uppercase mb-4">
+        <span class="w-8 h-px bg-brand-orange"></span>
+        Our Projects
+        <span class="w-8 h-px bg-brand-orange"></span>
+      </div>
+      <h2 class="font-heading font-bold text-4xl sm:text-5xl text-white mb-4">Our Work Speaks for Itself</h2>
+      <p class="text-gray-400 max-w-xl mx-auto text-lg">
+        Every project is a testament to our commitment to quality, precision, and durability.
+      </p>
+    </div>
+
+    <!-- Gallery grid -->
+    <div class="columns-2 md:columns-3 gap-4 space-y-4">
+      {images.map((img, i) => (
+        <div
+          class="gallery-item break-inside-avoid cursor-pointer overflow-hidden rounded-lg border border-brand-border hover:border-brand-orange/50 transition-all duration-300 group"
+          data-src={img.src}
+          data-alt={img.alt}
+        >
+          <img
+            src={img.src}
+            alt={img.alt}
+            class="w-full object-cover group-hover:scale-105 transition-transform duration-500 block"
+            loading="lazy"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden items-center justify-center p-4">
+  <button id="lightbox-close" class="absolute top-4 right-4 text-white hover:text-brand-orange transition-colors">
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+  </button>
+  <img id="lightbox-img" src="" alt="" class="max-h-[90vh] max-w-[90vw] object-contain rounded-lg shadow-2xl" />
+  <p id="lightbox-caption" class="absolute bottom-6 text-gray-300 text-sm text-center w-full"></p>
+</div>
+
+<script>
+  const items = document.querySelectorAll('.gallery-item');
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightbox-img') as HTMLImageElement;
+  const lbCaption = document.getElementById('lightbox-caption');
+  const lbClose = document.getElementById('lightbox-close');
+
+  function openLightbox(src: string, alt: string) {
+    lbImg.src = src;
+    lbImg.alt = alt;
+    if (lbCaption) lbCaption.textContent = alt;
+    lightbox?.classList.remove('hidden');
+    lightbox?.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox?.classList.add('hidden');
+    lightbox?.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      const src = item.getAttribute('data-src') || '';
+      const alt = item.getAttribute('data-alt') || '';
+      openLightbox(src, alt);
+    });
+  });
+
+  lbClose?.addEventListener('click', closeLightbox);
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>

@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import Gallery from '../components/Gallery.astro';
+import WhyUs from '../components/WhyUs.astro';
+import Contact from '../components/Contact.astro';
+---
+<Layout>
+  <Navbar />
+  <main>
+    <Hero />
+    <Services />
+    <Gallery />
+    <WhyUs />
+    <Contact />
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black border-t border-brand-border py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+        <!-- Brand -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-brand-orange rounded flex items-center justify-center font-heading font-bold text-white text-lg">MG</div>
+            <div class="font-heading font-bold text-white text-lg">MG Fabrication Works</div>
+          </div>
+          <p class="text-gray-500 text-sm leading-relaxed">
+            Chennai's trusted fabrication experts since 2013. Metal roofing, plumbing, and welding done right.
+          </p>
+        </div>
+
+        <!-- Quick links -->
+        <div>
+          <h4 class="font-heading font-bold text-white uppercase tracking-wide mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            {['Services', 'Gallery', 'About', 'Contact'].map(link => (
+              <li>
+                <a href={`#${link.toLowerCase()}`} class="text-gray-500 hover:text-brand-orange text-sm transition-colors">{link}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <h4 class="font-heading font-bold text-white uppercase tracking-wide mb-4">Services</h4>
+          <ul class="space-y-2">
+            {['Metal Roofing', 'Plumbing Works', 'Welding & Fabrication', 'Industrial Sheds', 'Gate & Grill Work'].map(s => (
+              <li class="text-gray-500 text-sm">{s}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-brand-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-gray-600 text-sm">© 2024 MG Fabrication Works. All rights reserved. Chennai, Tamil Nadu.</p>
+        <p class="text-gray-500 text-xs">Built with ❤️ by <a href="https://sambhusankar.github.io/dev.sankar.com/" target="_blank" rel="noopener noreferrer" class="text-brand-orange font-semibold underline underline-offset-2 hover:text-orange-400 transition-colors">Sankar</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 bg-brand-orange hover:bg-orange-600 text-white p-3 rounded-full shadow-lg shadow-orange-500/30 transition-all duration-200 opacity-0 translate-y-4 z-40" aria-label="Back to top">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+  </button>
+
+  <script>
+    const btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        btn?.classList.remove('opacity-0', 'translate-y-4');
+        btn?.classList.add('opacity-100', 'translate-y-0');
+      } else {
+        btn?.classList.add('opacity-0', 'translate-y-4');
+        btn?.classList.remove('opacity-100', 'translate-y-0');
+      }
+    });
+    btn?.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Smooth scroll for all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(anchor.getAttribute('href') || '');
+        target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  </script>
+</Layout>

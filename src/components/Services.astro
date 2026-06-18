@@ -1,0 +1,78 @@
+---
+const services = [
+  {
+    title: 'Metal Roofing',
+    desc: 'Custom metal roofing solutions for residential, commercial, and industrial buildings. Durable, weather-resistant, and built to withstand Chennai\'s climate for decades.',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>`,
+    features: ['Sheet Metal Roofing', 'Corrugated Sheets', 'Industrial Shed Roofing', 'Waterproofing'],
+  },
+  {
+    title: 'Plumbing Works',
+    desc: 'Professional plumbing installations and repairs for homes, apartments, and commercial spaces. CPVC, UPVC, and GI pipe works with premium fittings.',
+    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80',
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>`,
+    features: ['Pipe Fitting & Installation', 'Water Supply Lines', 'Drainage Systems', 'Bathroom Fittings'],
+  },
+  {
+    title: 'Welding & Fabrication',
+    desc: 'Precision MIG, TIG, and arc welding for structural steel, gates, grills, railings, and custom metal fabrication work for any requirement.',
+    image: 'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=800&q=80',
+    icon: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"/></svg>`,
+    features: ['MIG & TIG Welding', 'Gate & Grill Fabrication', 'Structural Steel Work', 'Custom Metal Work'],
+  },
+];
+---
+
+<section id="services" class="py-24 bg-brand-surface">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <!-- Section header -->
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center gap-2 text-brand-orange text-sm font-semibold tracking-widest uppercase mb-4">
+        <span class="w-8 h-px bg-brand-orange"></span>
+        What We Do
+        <span class="w-8 h-px bg-brand-orange"></span>
+      </div>
+      <h2 class="font-heading font-bold text-4xl sm:text-5xl text-white mb-4">Our Services</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+        From roof to drain — we handle every aspect of metal fabrication and plumbing with precision and quality materials.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {services.map(service => (
+        <div class="group bg-brand-card border border-brand-border rounded-xl overflow-hidden hover:border-brand-orange/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-orange-500/10">
+          <!-- Image -->
+          <div class="relative h-52 overflow-hidden">
+            <img
+              src={service.image}
+              alt={service.title}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent"></div>
+            <!-- Icon badge -->
+            <div class="absolute top-4 left-4 bg-brand-orange text-white p-2.5 rounded-lg shadow-lg">
+              <Fragment set:html={service.icon} />
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="p-6">
+            <h3 class="font-heading font-bold text-2xl text-white mb-3 group-hover:text-brand-orange transition-colors">{service.title}</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-5">{service.desc}</p>
+            <ul class="space-y-2">
+              {service.features.map(f => (
+                <li class="flex items-center gap-2 text-sm text-gray-300">
+                  <svg class="w-4 h-4 text-brand-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

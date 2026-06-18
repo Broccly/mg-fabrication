@@ -1,0 +1,81 @@
+---
+const pillars = [
+  {
+    stat: '10+',
+    label: 'Years Experience',
+    desc: 'A decade of trusted craftsmanship across Chennai and surrounding areas.',
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>`,
+  },
+  {
+    stat: '500+',
+    label: 'Projects Completed',
+    desc: 'From single homes to large industrial complexes — we\'ve done it all.',
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>`,
+  },
+  {
+    stat: 'On-Time',
+    label: 'Delivery Promise',
+    desc: 'We respect your schedule and commit to deadlines without compromising quality.',
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`,
+  },
+  {
+    stat: 'Premium',
+    label: 'Quality Materials',
+    desc: 'We use only certified, high-grade steel, pipes, and fittings for lasting durability.',
+    icon: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>`,
+  },
+];
+---
+
+<section id="why-us" class="py-24 bg-brand-surface relative overflow-hidden">
+  <!-- Background pattern -->
+  <div class="absolute inset-0 opacity-5">
+    <div class="absolute inset-0" style="background-image: repeating-linear-gradient(45deg, #f97316 0, #f97316 1px, transparent 0, transparent 50%); background-size: 30px 30px;"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <!-- Left: image + quote -->
+      <div class="relative">
+        <img
+          src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=900&q=80"
+          alt="MG Fabrication team at work"
+          class="w-full rounded-xl object-cover h-96 lg:h-[500px]"
+        />
+        <div class="absolute inset-0 rounded-xl ring-1 ring-brand-orange/20"></div>
+        <!-- Quote overlay -->
+        <div class="absolute -bottom-6 -right-4 md:right-6 bg-brand-orange text-white p-6 rounded-xl max-w-xs shadow-2xl">
+          <p class="font-heading text-lg font-bold leading-snug">"Quality is never an accident — it is always the result of intelligent effort."</p>
+          <p class="mt-2 text-sm text-orange-100 font-medium">— MG Fabrication Works</p>
+        </div>
+      </div>
+
+      <!-- Right: content -->
+      <div class="pt-8 lg:pt-0">
+        <div class="inline-flex items-center gap-2 text-brand-orange text-sm font-semibold tracking-widest uppercase mb-4">
+          <span class="w-8 h-px bg-brand-orange"></span>
+          Why Choose Us
+        </div>
+        <h2 class="font-heading font-bold text-4xl sm:text-5xl text-white mb-6">
+          Chennai's Most Trusted Fabricators
+        </h2>
+        <p class="text-gray-400 text-lg leading-relaxed mb-10">
+          We combine old-school craftsmanship with modern techniques to deliver fabrication work that stands the test of time. Every weld, every joint, every pipe — done right.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {pillars.map(p => (
+            <div class="bg-brand-card border border-brand-border rounded-xl p-5 hover:border-brand-orange/40 transition-colors">
+              <div class="text-brand-orange mb-3">
+                <Fragment set:html={p.icon} />
+              </div>
+              <div class="font-heading font-bold text-2xl text-white mb-1">{p.stat}</div>
+              <div class="font-semibold text-gray-200 text-sm mb-2">{p.label}</div>
+              <div class="text-gray-500 text-xs leading-relaxed">{p.desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
